@@ -1,4 +1,4 @@
-import zbar
+import pyzbar as zbar
 from PIL import Image
 import cv2
 import MySQLdb
@@ -111,10 +111,10 @@ def face_rec(sn):
                 name="unknown "
                 print (conf)
             if loop == False:
-                print id
-                print name
+                print (id)
+                print (name)
                 t = str(datetime.datetime.now())
-                print t
+                print (t)
                 #'%s'" % (id)
                 with open("sample.jpg", 'rb') as f:
                     pic = f.read()
@@ -122,7 +122,7 @@ def face_rec(sn):
                 query ="INSERT INTO attendance (srno,number,time) VALUES (1,%d,'%s')"%(id,t)
                 c=db.cursor();
                 n=c.execute(query)
-                print n
+                print (n)
             cv2.putText(img, name, (x, y + h), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 4)
             cv2.imshow("Current", img)
 
